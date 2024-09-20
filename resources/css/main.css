@@ -1,0 +1,70 @@
+.main_buttons {
+    margin-top: 80px;
+}
+.sec_but {
+    margin-left: 20px;
+}
+.main_marg {
+    margin-top: 20px;
+}
+.telegram_marg {
+    margin-top: 20px;
+}
+.telegram_lit_marg {
+    margin-top: 10px;
+}
+.deleteCursor:hover {
+    cursor:pointer;
+    text-decoration: underline;
+    color: #007bff;
+}
+.otst_but {
+    margin-right: 20px;
+}
+.otst_but_top {
+    margin-top: 20px;
+}
+.green_color {
+    color: green;
+}
+.renew {
+    margin-left: 20px;
+    padding-top: 7px;
+}
+.otst_l {
+    margin-left: 10px;
+}
+.textar_width {
+    width: 600px;
+}
+.select_suct {
+    width:400px;
+}
+.line-container {
+    border: 1px solid #ddd; /* Рамка */
+    border-radius: 8px; /* Закругление углов */
+    padding: 15px; /* Внутренний отступ */
+    margin-bottom: 10px; /* Внешний отступ между линиями */
+    background-color: #f9f9f9; /* Фон */
+}
+.addStrokaMarg {
+    margin-bottom:20px;
+}
+.filters_button {
+    margin-top: 20px;
+}
+.stop_slova_header {
+    margin-top: 10px;
+}
+.stop_slova {
+    margin-top: 10px;
+}
+.active_class_table {
+    background-color: #e5e7eb !important;
+}
+.ready_res_class {
+    margin-top: 20px;
+}
+.button_choose{
+    width: 150px;
+}
