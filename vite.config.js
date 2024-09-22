@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-
+import vue from '@vitejs/plugin-vue'; // Импортируйте плагин Vue
 export default defineConfig({
     plugins: [
         laravel({
@@ -13,5 +13,6 @@ export default defineConfig({
             ],
             refresh: true,
         }),
+        vue(),
     ],
 });
