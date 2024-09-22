@@ -9,6 +9,7 @@
     <title>Test</title>
     @vite('resources/js/app.js')
     @vite('resources/js/searchForm/jQformJS.js')
+    @vite('resources/js/searchForm/formJS.js')
 </head>
 <body class="back_img">
 

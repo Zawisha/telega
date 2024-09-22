@@ -6,7 +6,10 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
+                'resources/css/main.css',
                 'resources/js/app.js',
+                'resources/js/searchForm/jQformJS.js',
+                'resources/js/searchForm/formJS.js',
             ],
             refresh: true,
         }),

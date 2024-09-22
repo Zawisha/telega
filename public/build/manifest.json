@@ -4,10 +4,27 @@
     "src": "resources/css/app.css",
     "isEntry": true
   },
+  "resources/css/main.css": {
+    "file": "assets/main-DH-QxRxR.css",
+    "src": "resources/css/main.css",
+    "isEntry": true
+  },
   "resources/js/app.js": {
     "file": "assets/app-SOzcb3O0.js",
     "name": "app",
     "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/searchForm/formJS.js": {
+    "file": "assets/formJS-DsLjuduN.js",
+    "name": "formJS",
+    "src": "resources/js/searchForm/formJS.js",
+    "isEntry": true
+  },
+  "resources/js/searchForm/jQformJS.js": {
+    "file": "assets/jQformJS-oWHjUu0u.js",
+    "name": "jQformJS",
+    "src": "resources/js/searchForm/jQformJS.js",
     "isEntry": true
   }
 }
