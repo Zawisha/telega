@@ -37,4 +37,12 @@ class NotReadyResults extends Model
             ['used'=>true]
         );
     }
+    public function getCount()
+    {
+        return NotReadyResults::where('peredano',0)->count();
+    }
+    public function getFiveRows()
+    {
+        return  NotReadyResults::where('peredano',0)->take(5)->get();
+    }
 }

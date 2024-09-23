@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -26,6 +27,7 @@ Route::get('/filters',[FiltersController::class, 'index']);
 Route::get('/filter/{id}',[FiltersController::class, 'showOneFilter']);
 Route::get('/notReadyFilter',[FiltersController::class, 'notReadyFilter']);
 Route::get('/readyFilter',[FiltersController::class, 'readyFilter']);
+Route::get('/sendHosting',[ApiController::class, 'index']);
 
 Route::post('/saveNewTelegramUser',[TelegramController::class, 'saveNewTelegramUser']);
 Route::post('/getAuthCodeTelegram',[TelegramController::class, 'getAuthCodeTelegram']);
@@ -55,5 +57,6 @@ Route::post('/deleteEditLine',[SearchController::class, 'deleteEditLine'])->name
 Route::post('/deleteClientLine',[SearchController::class, 'deleteClientLine'])->name('deleteClientLine');
 Route::post('/addReadyClient',[SearchController::class, 'addReadyClient'])->name('addReadyClient');
 Route::post('/getClient',[FiltersController::class, 'getClient'])->name('getClient');
+Route::post('/sendToHosting',[ApiController::class, 'sendToHosting'])->name('sendToHosting');
 
 
