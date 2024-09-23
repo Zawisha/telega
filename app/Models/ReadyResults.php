@@ -19,6 +19,15 @@ class ReadyResults extends Model
             'client_name' => $post->client_name,
         ]);
     }
+    public function test()
+    {
+        ReadyResults::create([
+            'group_name' => 'test',
+            'message' => 'test1',
+            'link' => 'test2',
+            'client_name' => 'test3',
+        ]);
+    }
     public function getOneReadyPost()
     {
         return ReadyResults::where('used',0)->first();
@@ -30,4 +39,5 @@ class ReadyResults extends Model
             ['used'=>true]
         );
     }
+
 }

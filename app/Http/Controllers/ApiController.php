@@ -3,18 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\NotReadyResults;
+use App\Models\ReadyResults;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class ApiController extends Controller
 {
     protected $notReadyResults;
+    protected $readyResults;
 
     public function __construct(
-        NotReadyResults $notReadyResults
+        NotReadyResults $notReadyResults,
+        ReadyResults $readyResults
     )
     {
         $this->notReadyResults=$notReadyResults;
+        $this->readyResults=$readyResults;
     }
 
     public function index()
@@ -30,20 +34,21 @@ class ApiController extends Controller
         $data=$this->notReadyResults->getFiveRows();
 
         // Выполнение POST-запроса
-        $response = Http::post('https://hashiro.ru/api/getFromLocal', $data);
+        $response = Http::post('http://hashiro.ru/api/getFromLocal', $data);
         return response()->json([
             'status' => 'success',
-            'message' =>'Собрал группы',
+            'message' =>'Отправлено',
             'countPosts' =>0,
             'resp' =>$response,
         ], 200);
     }
     public function getFromLocal(Request $request)
     {
-        $data = $request->all();
+        //$data = $request->all();
+        $this->readyResults->test();
         return response()->json([
             'message' => 'Данные успешно получены',
-            'received_data' => $data
+            'received_data' => 'done'
         ], 200);
     }
 }
