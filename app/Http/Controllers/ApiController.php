@@ -46,7 +46,7 @@ class ApiController extends Controller
     {
         $data = $request->all();
         //Storage::put('messages1.txt', json_encode($data, JSON_PRETTY_PRINT));
-       // $data=json_encode($data, JSON_PRETTY_PRINT);
+        $data=json_encode($data, JSON_PRETTY_PRINT);
         foreach($data[0] as $oneRow)
         {
             $this->readyResults->addResult($oneRow);
