@@ -35,7 +35,9 @@ class ApiController extends Controller
         $data=$this->notReadyResults->getFiveRows();
 
         // Выполнение POST-запроса
-        $response = Http::post('http://hashiro.ru/api/getFromLocal', $data);
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+        ])->post('http://hashiro.ru/api/getFromLocal', $data);
         return response()->json([
             'status' => 'success',
             'message' =>'Отправлено',
@@ -46,7 +48,7 @@ class ApiController extends Controller
     public function getFromLocal(Request $request)
     {
         $data = $request->all();
-        Storage::put('messages1.txt', 'asd');
+        Storage::put('messages1.txt', $data);
 
 //        foreach($data as $oneRow)
 //        {
