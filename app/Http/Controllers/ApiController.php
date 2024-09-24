@@ -44,8 +44,11 @@ class ApiController extends Controller
     }
     public function getFromLocal(Request $request)
     {
-        //$data = $request->all();
-        $this->readyResults->test();
+        $data = $request->all();
+        foreach($data as $oneRow)
+        {
+            $this->readyResults->addResult($oneRow);
+        }
         return response()->json([
             'message' => 'Данные успешно получены',
             'received_data' => 'done'
