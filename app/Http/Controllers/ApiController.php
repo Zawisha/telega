@@ -6,6 +6,7 @@ use App\Models\NotReadyResults;
 use App\Models\ReadyResults;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class ApiController extends Controller
 {
@@ -39,16 +40,18 @@ class ApiController extends Controller
             'status' => 'success',
             'message' =>'Отправлено',
             'countPosts' =>0,
-            'resp' =>$response,
+            'resp' =>$data,
         ], 200);
     }
     public function getFromLocal(Request $request)
     {
         $data = $request->all();
-        foreach($data as $oneRow)
-        {
-            $this->readyResults->addResult($oneRow);
-        }
+        Storage::put('messages.txt', $data);
+
+//        foreach($data as $oneRow)
+//        {
+//            $this->readyResults->addResult($oneRow);
+//        }
         return response()->json([
             'message' => 'Данные успешно получены',
             'received_data' => 'done'
