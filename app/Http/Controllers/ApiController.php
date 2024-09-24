@@ -46,7 +46,8 @@ class ApiController extends Controller
     public function getFromLocal(Request $request)
     {
         $data = $request->all();
-        Storage::disk('local')->put('example.txt', 'Contents');
+        Storage::put('messages.txt', $data);
+
 //        foreach($data as $oneRow)
 //        {
 //            $this->readyResults->addResult($oneRow);
