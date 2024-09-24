@@ -33,7 +33,6 @@ class ApiController extends Controller
     public function sendToHosting()
     {
         $data=$this->notReadyResults->getFiveRows();
-
         // Выполнение POST-запроса
         $response = Http::asForm()->post('http://hashiro.ru/api/getFromLocal', $data);
         return response()->json([
@@ -46,12 +45,12 @@ class ApiController extends Controller
     public function getFromLocal(Request $request)
     {
         $data = $request->all();
-        Storage::put('messages1.txt', $data);
+        Storage::put('messages1.txt', json_encode($data, JSON_PRETTY_PRINT));
 
-//        foreach($data as $oneRow)
-//        {
-//            $this->readyResults->addResult($oneRow);
-//        }
+        foreach($data as $oneRow)
+        {
+            $this->readyResults->addResult($oneRow);
+        }
         return response()->json([
             'message' => 'Данные успешно получены',
             'received_data' => 'done'
