@@ -41,6 +41,7 @@ class ApiController extends Controller
             'message' =>'Отправлено',
             'countPosts' =>0,
             'resp' =>$data,
+            'response' =>$response,
         ], 200);
     }
     public function getFromLocal(Request $request)
@@ -50,7 +51,7 @@ class ApiController extends Controller
         //$data=json_encode($data, JSON_PRETTY_PRINT);
         foreach($data as $oneRow)
         {
-            $this->readyResults->addResult($oneRow);
+            $this->readyResults->test($oneRow);
         }
         return response()->json([
             'message' => 'Данные успешно получены',

@@ -26,6 +26,15 @@ class ReadyResults extends Model
             Storage::put('messages5.txt', $e);
         }
     }
+    public function test()
+    {
+        ReadyResults::create([
+            'group_name' => 'test2',
+            'message' => 'test2',
+            'link' => 'test2',
+            'client_name' => 'test2',
+        ]);
+    }
     public function getOneReadyPost()
     {
         return ReadyResults::where('used',0)->first();
