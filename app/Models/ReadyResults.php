@@ -13,6 +13,7 @@ class ReadyResults extends Model
 
     public function addResult($post)
     {
+        Storage::put('messages3.txt', $post);
         try {
             ReadyResults::create([
                 'group_name' => $post['group_name'],
