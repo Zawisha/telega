@@ -26,11 +26,11 @@ class ReadyResults extends Model
             Storage::put('messages5.txt', $e);
         }
     }
-    public function test()
+    public function test($oneRow)
     {
         ReadyResults::create([
             'group_name' => 'test2',
-            'message' => 'test2',
+            'message' => $oneRow,
             'link' => 'test2',
             'client_name' => 'test2',
         ]);
