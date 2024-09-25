@@ -28,12 +28,17 @@ class ReadyResults extends Model
     }
     public function test($oneRow)
     {
+        try {
         ReadyResults::create([
             'group_name' => 'test2',
             'message' => $oneRow,
             'link' => 'test2',
             'client_name' => 'test2',
         ]);
+        }
+        catch(\Exception $e) {
+            Storage::put('messages5.txt', $e);
+        }
     }
     public function getOneReadyPost()
     {
