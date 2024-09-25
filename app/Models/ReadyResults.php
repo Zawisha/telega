@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class ReadyResults extends Model
 {
@@ -12,12 +13,17 @@ class ReadyResults extends Model
 
     public function addResult($post)
     {
-        ReadyResults::create([
-            'group_name' => $post->group_name,
-            'message' => $post->message,
-            'link' => $post->link,
-            'client_name' => $post->client_name,
-        ]);
+        try {
+            ReadyResults::create([
+                'group_name' => $post->group_name,
+                'message' => $post->message,
+                'link' => $post->link,
+                'client_name' => $post->client_name,
+            ]);
+        }
+        catch(\Exception $e) {
+            Storage::put('messages2.txt', $e);
+        }
     }
     public function getOneReadyPost()
     {
