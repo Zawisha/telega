@@ -15,10 +15,10 @@ class ReadyResults extends Model
     {
         try {
             ReadyResults::create([
-                'group_name' => $post->group_name,
-                'message' => $post->message,
-                'link' => $post->link,
-                'client_name' => $post->client_name,
+                'group_name' => $post['group_name'],
+                'message' => $post['message'],
+                'link' => $post['link'],
+                'client_name' => $post['client_name'],
             ]);
         }
         catch(\Exception $e) {
