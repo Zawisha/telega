@@ -47,12 +47,13 @@ class ApiController extends Controller
     public function getFromLocal(Request $request)
     {
         $data = $request->all();
+        Storage::put('messages1.txt', $data);
         //Storage::put('messages1.txt', json_encode($data, JSON_PRETTY_PRINT));
         //$data=json_encode($data, JSON_PRETTY_PRINT);
-        foreach($data as $oneRow)
-        {
-            $this->readyResults->test($oneRow);
-        }
+//        foreach($data as $oneRow)
+//        {
+//            $this->readyResults->test($oneRow);
+//        }
         return response()->json([
             'message' => 'Данные успешно получены',
             'received_data' => 'done'
