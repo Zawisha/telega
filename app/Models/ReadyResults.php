@@ -22,7 +22,7 @@ class ReadyResults extends Model
             ]);
         }
         catch(\Exception $e) {
-            Storage::put('messages2.txt', $e);
+            Storage::put('messages3.txt', $e);
         }
     }
     public function getOneReadyPost()
