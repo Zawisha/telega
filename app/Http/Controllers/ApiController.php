@@ -51,7 +51,7 @@ class ApiController extends Controller
         Log::info($data);
         foreach($data[0] as $oneRow)
         {
-            $this->readyResults->addResult($oneRow);
+            $this->readyResults->addResult($oneRow[0]);
         }
         return response()->json([
             'message' => 'Данные успешно получены',
