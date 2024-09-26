@@ -35,10 +35,10 @@ class ApiController extends Controller
     {
         $data=$this->notReadyResults->getFiveRows();
         // Выполнение POST-запроса
-      //  $response = Http::post('http://hashiro.ru/api/getFromLocal', $data);
+//        $response = Http::post('http://hashiro.ru/api/getFromLocal', $data);
 // Выполнение POST-запроса с передачей JSON данных
         $data = json_encode([
-            'name' => 'John Doe',
+            'name' => 'John Doe111',
             'email' => 'john@example.com'
         ]);
         $options = ['http' => [
@@ -65,7 +65,7 @@ class ApiController extends Controller
 
       //  $str = file_get_contents('php://input') . PHP_EOL;
         try {
-            Storage::put('messages12.txt', $request->data);
+            Storage::put('messages12.txt', $request);
         }
         catch(\Exception $e) {
             Storage::put('messages9.txt', $e);
