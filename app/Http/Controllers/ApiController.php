@@ -71,7 +71,7 @@ class ApiController extends Controller
         }
       //  $str = file_get_contents('php://input') . PHP_EOL;
         try {
-            Storage::put('messages12.txt', $request);
+            Storage::put('messages12.txt', $data);
         }
         catch(\Exception $e) {
             Storage::put('messages9.txt', $e);
