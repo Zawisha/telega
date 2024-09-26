@@ -65,7 +65,7 @@ class ApiController extends Controller
 
         foreach($data as $oneRow)
         {
-            $this->readyResults->test($oneRow);
+            $this->readyResults->addResult($oneRow);
         }
         return response()->json([
             'message' => 'Данные успешно получены',
