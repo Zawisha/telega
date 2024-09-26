@@ -13,7 +13,6 @@ class ReadyResults extends Model
 
     public function addResult($post)
     {
-        Storage::put('messages6.txt', $post);
         try {
             ReadyResults::create([
                 'group_name' => $post['group_name'],
@@ -23,7 +22,7 @@ class ReadyResults extends Model
             ]);
         }
         catch(\Exception $e) {
-            Storage::put('messages5.txt', $e);
+//            Storage::put('messages5.txt', $e);
         }
     }
     public function test($oneRow)
