@@ -34,7 +34,6 @@ class ApiController extends Controller
     public function sendToHosting()
     {
         $data=$this->notReadyResults->getFiveRows();
-        $data=json_encode($data);
         // Выполнение POST-запроса
       //  $response = Http::post('http://hashiro.ru/api/getFromLocal', $data);
 // Выполнение POST-запроса с передачей JSON данных
@@ -60,9 +59,9 @@ class ApiController extends Controller
        // $req = $request->getContent();
        // $rawData = parse_str($request);
 
-
+        $str = file_get_contents('php://input') . PHP_EOL;
         try {
-            Storage::put('messages12.txt', $request);
+            Storage::put('messages12.txt', $str);
         }
         catch(\Exception $e) {
             Storage::put('messages9.txt', $e);
