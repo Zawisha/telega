@@ -37,10 +37,10 @@ class ApiController extends Controller
         // Выполнение POST-запроса
 //        $response = Http::post('http://hashiro.ru/api/getFromLocal', $data);
 // Выполнение POST-запроса с передачей JSON данных
-        $data = json_encode([
-            'name' => 'John Doe111',
-            'email' => 'john@example.com'
-        ]);
+//        $data = json_encode([
+//            'name' => 'John Doe111',
+//            'email' => 'john@example.com'
+//        ]);
         $options = ['http' => [
             'method' => 'POST',
             'header' => 'Content-type:application/json',
