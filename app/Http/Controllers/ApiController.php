@@ -36,15 +36,22 @@ class ApiController extends Controller
         $data=$this->notReadyResults->getFiveRows();
         $data=json_encode($data);
         // Выполнение POST-запроса
-        $response = Http::post('http://hashiro.ru/api/getFromLocal', $data);
+      //  $response = Http::post('http://hashiro.ru/api/getFromLocal', $data);
 // Выполнение POST-запроса с передачей JSON данных
+        $options = ['http' => [
+            'method' => 'POST',
+            'header' => 'Content-type:application/json',
+            'content' => http_build_query($data)
+        ]];
+        $context = stream_context_create($options);
+        $response = file_get_contents('http://hashiro.ru/api/getFromLocal', false, $context);
 
         return response()->json([
             'status' => 'success',
             'message' =>'Отправлено',
             'countPosts' =>0,
             'resp' =>$data,
-            'response' =>$response,
+            'response' =>$data,
         ], 200);
     }
     public function getFromLocal(Request $request)
@@ -53,9 +60,9 @@ class ApiController extends Controller
        // $req = $request->getContent();
        // $rawData = parse_str($request);
 
-        $data= json_decode($request);
+
         try {
-            Storage::put('messages12.txt', $data);
+            Storage::put('messages12.txt', $request);
         }
         catch(\Exception $e) {
             Storage::put('messages9.txt', $e);
