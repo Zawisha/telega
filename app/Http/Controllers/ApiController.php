@@ -52,7 +52,7 @@ class ApiController extends Controller
     {
        // $data = $request->data;
         $rawData = $request->getContent();
-        $data= json_decode($rawData, true);
+        $data= json_decode($rawData);
         try {
             Storage::put('messages12.txt', $data);
         }
