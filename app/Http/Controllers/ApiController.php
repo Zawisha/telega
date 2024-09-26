@@ -51,8 +51,9 @@ class ApiController extends Controller
     public function getFromLocal(Request $request)
     {
        // $data = $request->data;
+        $data = $request->getContent();
         try {
-            Storage::put('messages12.txt', $request->getContent());
+            Storage::put('messages12.txt', $data[0]);
         }
         catch(\Exception $e) {
             Storage::put('messages9.txt', $e);
