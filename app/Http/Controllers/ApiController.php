@@ -35,7 +35,7 @@ class ApiController extends Controller
     {
         $data=$this->notReadyResults->getFiveRows();
         $data=json_encode($data);
-        // Выполнение POST-запроса
+        // Выполнение POST-запроса удачно
         $options = ['http' => [
             'method' => 'POST',
             'header' => 'Content-type:application/json',
