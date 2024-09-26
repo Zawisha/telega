@@ -60,7 +60,7 @@ class ApiController extends Controller
      //   $data = $request->json()->all();
         try {
             $data = $request->json()->all();
-            return $data[0];
+            return $data[0]->id;
         }
         catch(\Exception $e) {
            return $e;
