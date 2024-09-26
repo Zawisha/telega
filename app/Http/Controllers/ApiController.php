@@ -48,10 +48,10 @@ class ApiController extends Controller
     {
        // $data = $request->data;
         try {
-            Storage::put('messages7.txt', $request[0]->data);
+            Storage::put('messages10.txt', $request[0]);
         }
         catch(\Exception $e) {
-            Storage::put('messages8.txt', $e);
+            Storage::put('messages9.txt', $e);
         }
         //Storage::put('messages4.txt', $data[0]);
         //Storage::put('messages1.txt', json_encode($data, JSON_PRETTY_PRINT));
