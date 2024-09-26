@@ -54,7 +54,7 @@ class ApiController extends Controller
         $rawData = $request->getContent();
         $data= json_decode($rawData, true);
         try {
-            Storage::put('messages12.txt', $data);
+            Storage::put('messages12.txt', $rawData);
         }
         catch(\Exception $e) {
             Storage::put('messages9.txt', $e);
