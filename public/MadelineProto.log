@@ -9337,3 +9337,328 @@ SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/ap
 SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
 APIWrapper, endotropicoxeyes:     	Saved session!
 PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+UpdateHandler, endotropicoxeyes:  	Parsing updates (updateShort) received via the socket...
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001518262151
+UpdateHandler, endotropicoxeyes:  	Parsing updates (updateShort) received via the socket...
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001881458589
+UpdateHandler, endotropicoxeyes:  	Saving update of type updateDeleteChannelMessages
+UpdateHandler, endotropicoxeyes:  	Parsing updates (updates) received via the socket...
+SeqLoop, endotropicoxeyes:        	Was fed updates of type updates...
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001518262151
+UpdateHandler, endotropicoxeyes:  	Saving update of type updateNewChannelMessage
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001518262151
+UpdateHandler, endotropicoxeyes:  	Saving update of type updateDeleteChannelMessages
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001518262151
+FeedLoop, endotropicoxeyes:       	Got channel too long update, getting difference...
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001881458589
+FeedLoop, endotropicoxeyes:       	Got channel too long update, getting difference...
+Session, endotropicoxeyes:        	Garbage collected 15 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 11 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+UpdateHandler, endotropicoxeyes:  	Parsing updates (updateShort) received via the socket...
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001518262151
+UpdateHandler, endotropicoxeyes:  	Saving update of type updateDeleteChannelMessages
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001518262151
+FeedLoop, endotropicoxeyes:       	Got channel too long update, getting difference...
+Session, endotropicoxeyes:        	Garbage collected 9 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 2 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 4 outgoing messages in DC 2, 3 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+UpdateHandler, endotropicoxeyes:  	Parsing updates (updates) received via the socket...
+SeqLoop, endotropicoxeyes:        	Was fed updates of type updates...
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001881458589
+UpdateHandler, endotropicoxeyes:  	Saving update of type updateNewChannelMessage
+Session, endotropicoxeyes:        	Garbage collected 9 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001881458589
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+UpdateHandler, endotropicoxeyes:  	Parsing updates (updateShort) received via the socket...
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001881458589
+UpdateHandler, endotropicoxeyes:  	Saving update of type updateDeleteChannelMessages
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001881458589
+FeedLoop, endotropicoxeyes:       	Got channel too long update, getting difference...
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 10 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 9 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+UpdateHandler, endotropicoxeyes:  	Parsing updates (updateShort) received via the socket...
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001518262151
+UpdateHandler, endotropicoxeyes:  	Parsing updates (updates) received via the socket...
+SeqLoop, endotropicoxeyes:        	Was fed updates of type updates...
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001518262151
+UpdateHandler, endotropicoxeyes:  	Saving update of type updateNewChannelMessage
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001518262151
+UpdateHandler, endotropicoxeyes:  	Saving update of type updateDeleteChannelMessages
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001518262151
+FeedLoop, endotropicoxeyes:       	Got channel too long update, getting difference...
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 10 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 10 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 6 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/safe.php.lock...
+SessionPaths, endotropicoxeyes:   	Waiting for exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+SessionPaths, endotropicoxeyes:   	Got exclusive lock of /home/andrei/apache_server/telega/public/my_mad_sessions/+380991106635/lightState.php.lock...
+APIWrapper, endotropicoxeyes:     	Saved session!
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+Session, endotropicoxeyes:        	Garbage collected 7 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 5 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+UpdateHandler, endotropicoxeyes:  	Parsing updates (updates) received via the socket...
+SeqLoop, endotropicoxeyes:        	Was fed updates of type updates...
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001881458589
+UpdateHandler, endotropicoxeyes:  	Saving update of type updateNewChannelMessage
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+FeedLoop, endotropicoxeyes:       	Resumed update feed loop channel -1001881458589
+Session, endotropicoxeyes:        	Garbage collected 9 incoming messages in DC 2, 0 left
+Session, endotropicoxeyes:        	Garbage collected 7 outgoing messages in DC 2, 0 left
+PingLoop, endotropicoxeyes:       	Ping DC 2.0
+PingLoop, endotropicoxeyes:       	Ping DC 2.0

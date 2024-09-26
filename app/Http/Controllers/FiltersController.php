@@ -46,7 +46,8 @@ class FiltersController extends Controller
     public function readyFilter()
     {
         $post=$this->readyResults->getOneReadyPost();
-        return view('ready.ready', ['post' => $post]);
+        $countClients=$this->readyResults->getCount();
+        return view('ready.ready', ['post' => $post,'countClients'=>$countClients]);
     }
     public function getClient()
     {

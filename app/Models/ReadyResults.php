@@ -25,20 +25,7 @@ class ReadyResults extends Model
 //            Storage::put('messages5.txt', $e);
         }
     }
-    public function test($oneRow)
-    {
-        try {
-        ReadyResults::create([
-            'group_name' => 'test2',
-            'message' => $oneRow,
-            'link' => 'test2',
-            'client_name' => 'test2',
-        ]);
-        }
-        catch(\Exception $e) {
-            Storage::put('messages5.txt', $e);
-        }
-    }
+
     public function getOneReadyPost()
     {
         return ReadyResults::where('used',0)->first();
@@ -49,6 +36,10 @@ class ReadyResults extends Model
         update(
             ['used'=>true]
         );
+    }
+    public function getCount()
+    {
+        return ReadyResults::where('used',0)->count();
     }
 
 }

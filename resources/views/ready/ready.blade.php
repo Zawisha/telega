@@ -5,6 +5,7 @@
         <p>Всё обработано</p>
     @else
 <div>
+    <div>Осталось:{{ $countClients }}</div>
     <div>Клиент:{{ $post->client_name }}</div>
     <div class="ready_res_class">Ссылка:<a href={{ $post->link }}>{{ $post->link }}</a></div>
     <div class="d-flex justify-content-between">
