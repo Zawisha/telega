@@ -62,11 +62,16 @@ class ApiController extends Controller
        // $data = $request->data;
        // $req = $request->getContent();
        // $rawData = parse_str($request);
-        $data = $request->json()->all();
-
+     //   $data = $request->json()->all();
+        try {
+            $data = $request->json()->all();
+        }
+        catch(\Exception $e) {
+           return $e;
+        }
       //  $str = file_get_contents('php://input') . PHP_EOL;
         try {
-            Storage::put('messages12.txt', $data);
+            Storage::put('messages12.txt', $request);
         }
         catch(\Exception $e) {
             Storage::put('messages9.txt', $e);
