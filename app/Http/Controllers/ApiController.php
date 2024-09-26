@@ -52,7 +52,7 @@ class ApiController extends Controller
     {
        // $data = $request->data;
         try {
-            Storage::put('messages13.txt', $request->all());
+            Storage::put('messages12.txt', $request->getContent());
         }
         catch(\Exception $e) {
             Storage::put('messages9.txt', $e);
