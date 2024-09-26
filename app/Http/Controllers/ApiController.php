@@ -40,7 +40,7 @@ class ApiController extends Controller
         $options = ['http' => [
             'method' => 'POST',
             'header' => 'Content-type:application/json',
-            'content' => http_build_query($data)
+            'content' => $data
         ]];
         $context = stream_context_create($options);
         $response = file_get_contents('http://hashiro.ru/api/getFromLocal', false, $context);
@@ -50,7 +50,7 @@ class ApiController extends Controller
             'message' =>'Отправлено',
             'countPosts' =>0,
             'resp' =>$data,
-            'response' =>$data,
+            'response' =>$response,
         ], 200);
     }
     public function getFromLocal(Request $request)
