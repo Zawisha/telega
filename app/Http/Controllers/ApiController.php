@@ -36,7 +36,10 @@ class ApiController extends Controller
         $data=$this->notReadyResults->getFiveRows();
         // Выполнение POST-запроса
 //        $response = Http::post('http://hashiro.ru/api/getFromLocal', $data);
-        $response = Http::postJson('http://hashiro.ru/api/getFromLocal', $data);
+// Выполнение POST-запроса с передачей JSON данных
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+        ])->post('http://hashiro.ru/api/getFromLocal', $data);
         return response()->json([
             'status' => 'success',
             'message' =>'Отправлено',
