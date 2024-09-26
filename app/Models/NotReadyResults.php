@@ -43,6 +43,13 @@ class NotReadyResults extends Model
     }
     public function getFiveRows()
     {
-        return  NotReadyResults::where('peredano',0)->take(5)->get();
+        return  NotReadyResults::where('peredano',0)->take(2)->get();
+    }
+    public function setPeredano($id)
+    {
+        NotReadyResults::where('id',$id)->
+        update(
+            ['peredano'=>true]
+        );
     }
 }

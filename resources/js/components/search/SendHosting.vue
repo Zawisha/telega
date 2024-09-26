@@ -30,7 +30,15 @@ export default {
                 })
                 .then(response => {
                     // Успешный ответ
-                    alert(response.data.message);
+                    this.countResultes=response.data.countPosts;
+                    if(this.countResultes>0)
+                    {
+                        this.sendToHosting();
+                    }
+                    else
+                    {
+                        alert('Отправка окончена');
+                    }
                 })
                 .catch(error => {
                     if (error.response && error.response.status === 422) {

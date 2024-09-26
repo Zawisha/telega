@@ -33,22 +33,29 @@ class ApiController extends Controller
     }
     public function sendToHosting()
     {
+        sleep(2);
         $data=$this->notReadyResults->getFiveRows();
-        $data=json_encode($data);
+        $dataSend=json_encode($data);
         // Выполнение POST-запроса удачно
         $options = ['http' => [
             'method' => 'POST',
             'header' => 'Content-type:application/json',
-            'content' => $data
+            'content' => $dataSend
         ]];
         $context = stream_context_create($options);
         $response = file_get_contents('http://hashiro.ru/api/getFromLocal', false, $context);
+        //отмечаем те посты что передавал
+        foreach($data as $oneRow)
+        {
+            $this->notReadyResults->setPeredano($oneRow['id']);
+        }
+        //считаем количество оставшихся постов
+        $countPosts=$this->notReadyResults->getCount();
 
         return response()->json([
             'status' => 'success',
             'message' =>'Отправлено',
-            'countPosts' =>0,
-            'resp' =>$data,
+            'countPosts' =>$countPosts,
             'response' =>$response,
         ], 200);
     }
