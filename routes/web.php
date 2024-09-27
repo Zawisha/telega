@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VKController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CheckController;
@@ -28,6 +29,8 @@ Route::get('/filter/{id}',[FiltersController::class, 'showOneFilter']);
 Route::get('/notReadyFilter',[FiltersController::class, 'notReadyFilter']);
 Route::get('/readyFilter',[FiltersController::class, 'readyFilter']);
 Route::get('/sendHosting',[ApiController::class, 'index']);
+Route::get('/vk',[VKController::class, 'index']);
+
 
 Route::post('/saveNewTelegramUser',[TelegramController::class, 'saveNewTelegramUser']);
 Route::post('/getAuthCodeTelegram',[TelegramController::class, 'getAuthCodeTelegram']);
