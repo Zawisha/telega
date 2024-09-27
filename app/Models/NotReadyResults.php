@@ -55,7 +55,7 @@ class NotReadyResults extends Model
     public function addResult($post)
     {
         try {
-            ReadyResults::create([
+            NotReadyResults::create([
                 'group_name' => $post['group_name'],
                 'message' => $post['message'],
                 'link' => $post['link'],
