@@ -22,7 +22,7 @@ class ReadyResults extends Model
             ]);
         }
         catch(\Exception $e) {
-//            Storage::put('messages5.txt', $e);
+
         }
     }
 

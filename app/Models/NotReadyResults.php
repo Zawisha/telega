@@ -43,7 +43,7 @@ class NotReadyResults extends Model
     }
     public function getFiveRows()
     {
-        return  NotReadyResults::where('peredano',0)->take(2)->get();
+        return  NotReadyResults::where('peredano',0)->take(5)->get();
     }
     public function setPeredano($id)
     {
@@ -51,5 +51,19 @@ class NotReadyResults extends Model
         update(
             ['peredano'=>true]
         );
+    }
+    public function addResult($post)
+    {
+        try {
+            ReadyResults::create([
+                'group_name' => $post['group_name'],
+                'message' => $post['message'],
+                'link' => $post['link'],
+                'client_name' => $post['client_name'],
+            ]);
+        }
+        catch(\Exception $e) {
+
+        }
     }
 }
