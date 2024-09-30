@@ -23,6 +23,11 @@ class OneClientTelegramLine extends Model
     {
         return $this->hasMany(OneClientSettingsFiltersTelegramLine::class, 'line_id');
     }
+    // Определяем связь с моделью SourceName
+    public function sourceName()
+    {
+        return $this->belongsTo(SourceName::class, 'source_id');
+    }
 
     public function addLine($id)
     {
@@ -39,5 +44,13 @@ class OneClientTelegramLine extends Model
     public function deleteLine($line_id)
     {
         OneClientTelegramLine::where('id',$line_id)->delete();
+    }
+    public function updateSource($id,$sourceId)
+    {
+        OneClientTelegramLine::where('id',$id)->
+        update(
+            ['source_id'=>$sourceId]
+        );
+
     }
 }

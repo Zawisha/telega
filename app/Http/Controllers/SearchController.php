@@ -11,6 +11,7 @@ use App\Models\OneClientSettingsGroupsTelegramLine;
 use App\Models\OneClientTelegramLine;
 use App\Models\SearchFilters;
 use App\Models\SearchTelegramLine;
+use App\Models\SourceName;
 use App\Models\TelegramPhones;
 use App\Services\FilterService;
 use App\Services\SearchService;
@@ -34,6 +35,7 @@ class SearchController extends Controller
     protected $filterService;
     protected $notReadyResults;
     protected $filtersController;
+    protected $sourceName;
 
     public function __construct(
         SearchTelegramLine $searchTelegramLine,
@@ -47,7 +49,8 @@ class SearchController extends Controller
         TelegramPhones $TelegramPhones,
         FilterService $filterService,
         NotReadyResults $notReadyResults,
-        FiltersController $filtersController
+        FiltersController $filtersController,
+        SourceName $sourceName
     )
     {
         $this->searchTelegramLine=$searchTelegramLine;
@@ -62,6 +65,7 @@ class SearchController extends Controller
         $this->filterService=$filterService;
         $this->notReadyResults=$notReadyResults;
         $this->filtersController=$filtersController;
+        $this->sourceName=$sourceName;
 
     }
 
@@ -80,7 +84,9 @@ class SearchController extends Controller
         $clients=$this->myClient->getAllClients();
         $lines=$this->oneClientTelegramLine->getAll($id);
         $filters=$this->searchFilters->getAll();
-        return view('search.editOneLine', ['oneLine' => $oneLine,'clients' => $clients,'id' => $id,'lines'=>$lines,'filters'=>$filters]);
+        $sourceName=$this->sourceName->getAll();
+//        dd($lines);
+        return view('search.editOneLine', ['oneLine' => $oneLine,'clients' => $clients,'id' => $id,'lines'=>$lines,'filters'=>$filters,'sourceName'=>$sourceName]);
     }
     public function addGroupEditLine()
     {
@@ -126,6 +132,7 @@ class SearchController extends Controller
         ], 200);
     }
 
+    //вернутсья сюда при обработке
     public function searchClients(SearchClientsRequest $searchClientsRequest)
     {
         //получаю все данные. имя клиента. строки с настройками. фильтры и группы строк с настройками.
@@ -133,23 +140,23 @@ class SearchController extends Controller
         //пока работаю с временного телефона
         $phone='+380991106635';
         $MadelineProto=$this->madAuth($phone,'not');
-
+        //dd($allDataLines);
         //перебор строк настроек
         foreach($allDataLines[0]->oneClientLine as $settingLines)
         {
             //передаю список всех групп линии в сервис для поиска и возвращаю сами группы без фильтров
             $posts=$this->telegramService->getPosts($MadelineProto,$settingLines->settingsGroups);
            //вызываю фильтры
-           $posts=$this->filterService->mainFilter($settingLines,$posts);
+            $posts=$this->filterService->mainFilter($settingLines,$posts);
            //сохраняю результаты
             $this->notReadyResults->storeResults($posts,$allDataLines[0]->myClient->name);
-
-            return response()->json([
-                'status' => 'success',
-                'message' =>'Собрал группы',
-                'posts' =>$posts,
-            ], 200);
         }
+
+        return response()->json([
+            'status' => 'success',
+            'message' =>'Собрал группы',
+            'posts' =>$posts,
+        ], 200);
     }
     public function deleteEditLine()
     {
@@ -178,6 +185,10 @@ class SearchController extends Controller
         return view('ready.notReady', ['post' => $post]);
 
     }
-
+    public function updateSource()
+    {
+        $this->oneClientTelegramLine->updateSource(request('lineId'),request('sourceId'));
+        return response()->json(['status' => 'success']);
+    }
 
 }

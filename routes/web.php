@@ -61,5 +61,6 @@ Route::post('/deleteClientLine',[SearchController::class, 'deleteClientLine'])->
 Route::post('/addReadyClient',[SearchController::class, 'addReadyClient'])->name('addReadyClient');
 Route::post('/getClient',[FiltersController::class, 'getClient'])->name('getClient');
 Route::post('/sendToHosting',[ApiController::class, 'sendToHosting'])->name('sendToHosting');
+Route::post('/updateSource',[SearchController::class, 'updateSource'])->name('updateSource');
 
 

@@ -6,6 +6,7 @@
     <div>Клиент</div>
     <div>Внимание:Фильтры накладываются друг на друга</div>
     <div>Внимание:Для новой группы новый инпут!</div>
+    <div>Внимание:На каждой линии своя технология! Не смешивать тг, вк, инст</div>
     <div>Если хочешь копнуть глубже, просто в таблице one_client_settings_groups_telegram_lines находишь нужную группу, указываешь номер поста с которого хочешь копать</div>
     <select name="client_id" class="form-select select_suct select-client">
         <option value="" {{ !isset($oneLine[0]->myClient) ? 'selected' : '' }}>-- Выберите клиента --</option>
@@ -34,8 +35,17 @@
                 <input type="hidden" name="line_id" value="{{ $line->id }}">
                 <button class="btn btn-success">+группу</button>
             </form>
-        </div>
 
+            <select class="select_source select_source" name="category" id="source_{{ $line->id }}">
+                <option value="">ВЫБЕРИ ТИП ИСТОЧНИКА</option>
+                <!-- Перебираем данные, переданные из контроллера -->
+                @foreach ($sourceName as $category)
+                    <option value="{{ $category->id }}"
+                      {{ $line->source_id == $category->id ? 'selected' : '' }}
+                    >{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
         @if($line->settingsGroups)
             <p>Группы:</p>
             <div class="d-flex flex-wrap align-items-center mb-3">

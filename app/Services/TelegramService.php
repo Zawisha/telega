@@ -170,19 +170,3 @@ class TelegramService
     }
 
 }
-//try {
-//    $messages_Messages = $MadelineProto->messages->getHistory
-//    (
-//        peer: '-1001881458589',
-//        //    peer: $oneGroup->group_name,
-//        //    peer:$group_name,
-//        // offset_id:0,
-//        // offset_date: 0,
-//        // add_offset: '-33',
-//        limit: '10',
-//    //   max_id: 0,
-//    //    min_id: 0,
-//    //    hash: ['9223372036854775705']
-//    );
-//
-//}

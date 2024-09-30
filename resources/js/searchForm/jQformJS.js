@@ -91,5 +91,32 @@ $(document).ready(function() {
         });
     });
 
+    $('.select_source').on('change', function() {
+        var sourceId = $(this).val(); // Получаем выбранный ID категории
+        var lineId = $(this).attr('id').split('_')[1]; // Получаем ID строки (если нужно)
+        // Выполняем AJAX-запрос
+        $.ajax({
+            url: '/updateSource', // Укажите правильный маршрут
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {
+                sourceId: sourceId,
+                lineId: lineId
+            },
+            success: function(response) {
+                if (response.status === 'success') {
+                    console.log('Клиент успешно обновлен');
+                } else {
+                    alert('Ошибка при обновлении клиента: ' + response.message);
+                }
+            },
+            error: function(xhr) {
+                console.error('Ошибка при выполнении AJAX-запроса');
+            }
+        });
+
+    });
 
 });
