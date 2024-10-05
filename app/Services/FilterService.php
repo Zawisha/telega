@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\LinkInPostFilters;
 use App\Models\SearchTelegramLine;
+use App\Models\StoplinksVK;
 use App\Models\StopSlovaFilters;
 use App\Models\VseAvtoryChataFilters;
 
@@ -12,33 +13,53 @@ class FilterService
     protected $vseAvtoryChataFilters;
     protected $stopSlovaFilters;
     protected $linkInPostFilters;
+    protected $stoplinksVK;
 
 
     public function __construct(
         VseAvtoryChataFilters $vseAvtoryChataFilters,
         StopSlovaFilters $stopSlovaFilters,
-        LinkInPostFilters $linkInPostFilters
+        LinkInPostFilters $linkInPostFilters,
+        StoplinksVK $stoplinksVK
     )
     {
         $this->vseAvtoryChataFilters = $vseAvtoryChataFilters;
         $this->stopSlovaFilters = $stopSlovaFilters;
         $this->linkInPostFilters = $linkInPostFilters;
+        $this->stoplinksVK = $stoplinksVK;
     }
 
     public function mainFilter($settingLines,$posts)
     {
-        $posts=$this->techFilter($posts);
+        //фильтры телеграм
         if($settingLines->settingsFilter->contains('filter_id',1))
         {
+            $posts=$this->techFilter($posts);
             $posts=$this->vseAvtoryChataFilter($posts);
         }
         if($settingLines->settingsFilter->contains('filter_id',2))
         {
+            $posts=$this->techFilter($posts);
             $posts=$this->stopSlova($posts);
         }
         if($settingLines->settingsFilter->contains('filter_id',3))
         {
+            $posts=$this->techFilter($posts);
             $posts=$this->linkInPostFilter($posts);
+        }
+        //фильтры вк СДЕЛАТЬ НЕ ПОСЛЕДОВАТЕЛЬНО А ПАРАЛЛЕЛЬНО
+        if($settingLines->settingsFilter->contains('filter_id',4))
+        {
+            $posts=$this->techFilterVK($posts);
+            $posts=$this->linksFilterVK($posts);
+        }
+        if($settingLines->settingsFilter->contains('filter_id',5))
+        {
+            $posts=$this->reklamaVK($posts);
+        }
+        if($settingLines->settingsFilter->contains('filter_id',6))
+        {
+            $posts=$this->repostVK($posts);
         }
         return $posts;
     }
@@ -57,6 +78,26 @@ class FilterService
                 $newPosts[]=$posts[$index];
             }
         }
+        return $newPosts;
+    }
+    //технический фильтр убирающий знаки переноса и приводящий в нижний регистр
+    public function techFilterVK($groups)
+    {
+        $newPosts=[];
+        foreach ($groups as $posts)
+        {
+            $temp_posts=[];
+            //убираем знаки переноса и приводим в нижний регистр, убираем пустые сообщения
+            foreach($posts as $index=>$post)
+            {
+                    $text = str_replace(["\\n", "\\p"], " ", mb_strtolower($post->text));
+                    $text = str_replace("\n", " ", $text);
+                    $post->text=$text;
+                    $temp_posts[]=$post;
+            }
+            $newPosts[]=$temp_posts;
+        }
+
         return $newPosts;
     }
     //первый фильтр убирающий дубли авторов
@@ -139,7 +180,7 @@ class FilterService
                         $flag = true;
                     }
                 }
-                }
+                                                                     }
             }
             if($flag)
             {
@@ -148,6 +189,65 @@ class FilterService
         }
 
         return $newPosts;
+    }
+
+    public function linksFilterVK($groups)
+    {
+
+        $finalArr=[];
+        foreach($groups as $group)
+        {
+            $tempArr=[];
+            foreach($group as $post)
+            {
+                $flag=false;
+                //всё в нижний регистр
+                $postMessage=mb_strtolower($post->text);
+                //первый вариант когда в тексте есть https
+                $pattern = '/https?:\/\/[^\s]+/';
+                if (preg_match_all($pattern, $postMessage, $matches)) {
+                    //если ссылки найдены
+                    $urls = $matches[0]; // Массив всех найденных ссылок
+                    //проверяем есть ли такая ссылка и если нету то добавляем
+                    foreach ($urls as $oneLink) {
+                        //если запись создалась (т.е. ссылки ещё нету ) вернёт true
+                        $tempRes = $this->linkInPostFilters->checkLink($oneLink);
+                        if ($tempRes->wasRecentlyCreated) {
+                            $flag = true;
+                        }
+                    }
+                }
+                //второй вариант когда есть доменное окончание например .ru
+                $pattern = '/\b[\w\.-]+\.(ru|com|net|org|edu|gov|mil|info|biz|io|co|us|de|jp|uk|fr|au|ca|cn|it|es|nl|ch|se|no|in|br|mx|pl|za|dk|fi|be|at|tr|hk|sg|kr|nz|pt|cz|il|gr|ro|sk|hu|ie|vn|th|my|tw|ua|ar|cl|pe|ph|eg|pk|sa|ae|bg|si|lt|lv|ee|lu|by|ge|md|kz|am|kg|uz|az|bd|lk|np|ba|me|mk|rs|mt|hr|is|jo|qa|kw|om|bh|lb|ma|dz|tn|ng|gh|ke|tz|et|tm|tj|al|ad|li|sm|va|mc|rs|xk|bt|mn|kh|mm|la|kr|kp|id|bn|ir|sy|iq)\b/';
+                if (preg_match_all($pattern, $postMessage, $matches)) {
+                    //если ссылки найдены
+                    //сделать стоп ссылки, чтобы не было одинаковых
+                    $flag=$this->stoplinksVK->checkLink($postMessage);
+                }
+                //третий вариант внутренняя ссылка на ПАБЛИК
+                //ищем есть ли такая ссылка
+                if (strpos($postMessage, 'club') !== false) {
+                    // Подстрока найдена
+                    $flag=$this->stoplinksVK->checkLink($postMessage);
+                }
+
+                if($flag)
+                {
+                    $tempArr[]=$post;
+                }
+            }
+            $finalArr[]=$tempArr;
+        }
+        return $finalArr;
+    }
+    public function reklamaVK($posts)
+    {
+        return $posts;
+    }
+    //фильтр забирающий репосты
+    public function repostVK($posts)
+    {
+        return $posts;
     }
 }
 //$flag=false;

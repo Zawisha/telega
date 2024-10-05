@@ -43,6 +43,16 @@ class OneClientSettingsGroupsTelegramLine extends Model
     public function deleteGroups($line_id)
     {
         OneClientSettingsGroupsTelegramLine::where('line_id',$line_id)->delete();
-
+    }
+    public function getPostId($group_name)
+    {
+        return OneClientSettingsGroupsTelegramLine::where('group_name',$group_name)->value('post_id');
+    }
+    public function changePostIdVK($group_name,$post_id)
+    {
+        OneClientSettingsGroupsTelegramLine::where('group_name',$group_name)->
+        update(
+            ['post_id'=>$post_id]
+        );
     }
 }

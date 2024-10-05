@@ -62,5 +62,7 @@ Route::post('/addReadyClient',[SearchController::class, 'addReadyClient'])->name
 Route::post('/getClient',[FiltersController::class, 'getClient'])->name('getClient');
 Route::post('/sendToHosting',[ApiController::class, 'sendToHosting'])->name('sendToHosting');
 Route::post('/updateSource',[SearchController::class, 'updateSource'])->name('updateSource');
+Route::post('/updateTokenVK',[VKController::class, 'updateTokenVK'])->name('updateTokenVK');
+Route::post('/slovoAddVK',[FiltersController::class, 'slovoAddVK'])->name('slovoAddVK');
 
 

@@ -16,6 +16,7 @@ use App\Models\TelegramPhones;
 use App\Services\FilterService;
 use App\Services\SearchService;
 use App\Services\TelegramService;
+use App\Services\VkService;
 use App\Traits\SessionMaddelineTrait;
 use Illuminate\Http\Request;
 
@@ -36,6 +37,8 @@ class SearchController extends Controller
     protected $notReadyResults;
     protected $filtersController;
     protected $sourceName;
+    protected $VKController;
+    protected $vkService;
 
     public function __construct(
         SearchTelegramLine $searchTelegramLine,
@@ -50,7 +53,9 @@ class SearchController extends Controller
         FilterService $filterService,
         NotReadyResults $notReadyResults,
         FiltersController $filtersController,
-        SourceName $sourceName
+        SourceName $sourceName,
+        VKController $VKController,
+        VkService $vkService
     )
     {
         $this->searchTelegramLine=$searchTelegramLine;
@@ -66,6 +71,8 @@ class SearchController extends Controller
         $this->notReadyResults=$notReadyResults;
         $this->filtersController=$filtersController;
         $this->sourceName=$sourceName;
+        $this->VKController=$VKController;
+        $this->vkService=$vkService;
 
     }
 
@@ -132,30 +139,58 @@ class SearchController extends Controller
         ], 200);
     }
 
-    //вернутсья сюда при обработке
     public function searchClients(SearchClientsRequest $searchClientsRequest)
     {
         //получаю все данные. имя клиента. строки с настройками. фильтры и группы строк с настройками.
         $allDataLines=$this->searchTelegramLine->globalGetAll(request('line_id'));
-        //пока работаю с временного телефона
-        $phone='+380991106635';
-        $MadelineProto=$this->madAuth($phone,'not');
-        //dd($allDataLines);
+        //список всех ошибок
+        $errorList='';
         //перебор строк настроек
         foreach($allDataLines[0]->oneClientLine as $settingLines)
         {
-            //передаю список всех групп линии в сервис для поиска и возвращаю сами группы без фильтров
-            $posts=$this->telegramService->getPosts($MadelineProto,$settingLines->settingsGroups);
-           //вызываю фильтры
-            $posts=$this->filterService->mainFilter($settingLines,$posts);
-           //сохраняю результаты
-            $this->notReadyResults->storeResults($posts,$allDataLines[0]->myClient->name);
+            //если в строке выбран фильтр телеграм
+            if($settingLines['source_id']=='1')
+            {
+                //пока работаю с временного телефона
+                $phone='+380991106635';
+                $MadelineProto=$this->madAuth($phone,'not');
+                //передаю список всех групп линии в сервис для поиска и возвращаю сами группы без фильтров
+                $posts=$this->telegramService->getPosts($MadelineProto,$settingLines->settingsGroups);
+                //вызываю фильтры
+                $posts=$this->filterService->mainFilter($settingLines,$posts);
+                //сохраняю результаты
+                $this->notReadyResults->storeResults($posts,$allDataLines[0]->myClient->name);
+            }
+            //если в строке выбран фильтр вк
+            if($settingLines['source_id']=='2')
+            {
+              //передаю список всех групп линии в сервис для поиска и возвращаю сами группы без фильтров
+              $posts=$this->VKController->getPosts($settingLines->settingsGroups);
+              //отлов всех ошибок и убрал из результата
+              $tempPosts=$this->vkService->deleteErrors($posts);
+              $errorList=$tempPosts[0];
+              $posts=$tempPosts[1];
+              //4844 технофея
+              //dd($errorList);
+              //перевернул каждый оставшийся массив и убрал лишние поля ( количество )
+              $posts=$this->vkService->reverseArr($posts);
+              //оставить только новые посты и записать номер поста самого последнего
+                //ВЕРНУТЬ ЗАПИСЬ ID ПОСТА
+              $posts=$this->vkService->techFilter($posts);
+              //вызываю фильтры СДЕЛАТЬ ПОСЛЕДОВАТЕЛЬНЫЕ ФИЛЬТРЫ
+              $posts=$this->filterService->mainFilter($settingLines,$posts);
+
+                dd($posts);
+
+
+            }
+
         }
 
         return response()->json([
             'status' => 'success',
             'message' =>'Собрал группы',
-            'posts' =>$posts,
+            'errorList' =>$errorList,
         ], 200);
     }
     public function deleteEditLine()

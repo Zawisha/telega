@@ -8,6 +8,8 @@
     <div>Внимание:Для новой группы новый инпут!</div>
     <div>Внимание:На каждой линии своя технология! Не смешивать тг, вк, инст</div>
     <div>Если хочешь копнуть глубже, просто в таблице one_client_settings_groups_telegram_lines находишь нужную группу, указываешь номер поста с которого хочешь копать</div>
+    <div>В ВК вставлять id группы без минуса</div>
+    <div>В ВК группы ОБЯЗАТЕЛЬНО уникальные</div>
     <select name="client_id" class="form-select select_suct select-client">
         <option value="" {{ !isset($oneLine[0]->myClient) ? 'selected' : '' }}>-- Выберите клиента --</option>
         @foreach ($clients as $oneClient)

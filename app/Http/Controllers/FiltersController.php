@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddSlovoRequest;
+use App\Http\Requests\AddSlovoVKRequest;
 use App\Models\NotReadyResults;
 use App\Models\ReadyResults;
 use App\Models\SearchFilters;
+use App\Models\StoplinksVK;
 use App\Models\StopSlovaFilters;
 use Illuminate\Http\Request;
 
@@ -16,18 +18,23 @@ class FiltersController extends Controller
     protected $stopSlovaFilters;
     protected $notReadyResults;
     protected $readyResults;
+    protected $stoplinksVK;
+
 
     public function __construct(
         SearchFilters $searchFilters,
         StopSlovaFilters $stopSlovaFilters,
         NotReadyResults $notReadyResults,
-        ReadyResults $readyResults
+        ReadyResults $readyResults,
+        StoplinksVK $stoplinksVK
     )
     {
         $this->searchFilters=$searchFilters;
         $this->stopSlovaFilters=$stopSlovaFilters;
         $this->notReadyResults=$notReadyResults;
         $this->readyResults=$readyResults;
+        $this->stoplinksVK=$stoplinksVK;
+
     }
 
     public function index()
@@ -81,6 +88,14 @@ class FiltersController extends Controller
             ];
             return view('search.oneFilter', ['transfer' => $transfer,'id'=>request('id')]);
         }
+        if(request('id')=='4')
+        {
+            $slova=$this->stoplinksVK->getAll();
+            $transfer=[
+                'slova' => $slova,
+            ];
+            return view('search.oneFilter', ['transfer' => $transfer,'id'=>request('id')]);
+        }
     }
     public function slovoAdd(AddSlovoRequest $addSlovoRequest)
     {
@@ -91,4 +106,12 @@ class FiltersController extends Controller
         ], 200);
     }
 
+    public function slovoAddVK(AddSlovoVKRequest $addSlovoVKRequest)
+    {
+        $this->stoplinksVK->addSlovo(request('slovo'));
+        return response()->json([
+            'status' => 'success',
+            'message' =>'Слово добавлено',
+        ], 200);
+    }
 }

@@ -66,4 +66,18 @@ class NotReadyResults extends Model
 
         }
     }
+    public function addResultVK($group_name,$message,$link,$client_name)
+    {
+        try {
+            NotReadyResults::create([
+                'group_name' => $group_name,
+                'message' => $message,
+                'link' => $link,
+                'client_name' =>$client_name,
+            ]);
+        }
+        catch(\Exception $e) {
+
+        }
+    }
 }

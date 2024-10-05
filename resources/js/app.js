@@ -18,6 +18,8 @@ import VseAvtoryChata from './components/filters/VseAvtoryChata.vue';
 import StopSlova from './components/filters/StopSlova.vue';
 import LinkInPost from './components/filters/LinkInPost.vue';
 import Vkmain from './components/vk/Vkmain.vue';
+import StopLinksVK from './components/filters/StopLinksVK.vue';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import '../css/main.css'; // Импортируем глобальные стили
@@ -43,5 +45,7 @@ app.component('StopSlova', StopSlova);
 app.component('LinkInPost', LinkInPost);
 app.component('SendHosting', SendHosting);
 app.component('Vkmain', Vkmain);
+app.component('StopLinksVK', StopLinksVK);
+
 app.mixin(MainMixin);
 app.mount("#app");
