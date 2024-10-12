@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\LinkInPostFilters;
+use App\Models\RepostOwnersVK;
 use App\Models\SearchTelegramLine;
 use App\Models\StoplinksVK;
 use App\Models\StopSlovaFilters;
@@ -14,54 +15,87 @@ class FilterService
     protected $stopSlovaFilters;
     protected $linkInPostFilters;
     protected $stoplinksVK;
+    protected $repostOwnersVK;
 
 
     public function __construct(
         VseAvtoryChataFilters $vseAvtoryChataFilters,
         StopSlovaFilters $stopSlovaFilters,
         LinkInPostFilters $linkInPostFilters,
-        StoplinksVK $stoplinksVK
+        StoplinksVK $stoplinksVK,
+        RepostOwnersVK $repostOwnersVK
     )
     {
         $this->vseAvtoryChataFilters = $vseAvtoryChataFilters;
         $this->stopSlovaFilters = $stopSlovaFilters;
         $this->linkInPostFilters = $linkInPostFilters;
         $this->stoplinksVK = $stoplinksVK;
+        $this->repostOwnersVK = $repostOwnersVK;
     }
 
     public function mainFilter($settingLines,$posts)
     {
+        $resPosts=[];
+
         //фильтры телеграм
+        //вызываю тех фильтр если фильтры телеграм
+        if ($settingLines['source_id']=='1') {
+
+        $OldPosts=$this->techFilter($posts);
+
         if($settingLines->settingsFilter->contains('filter_id',1))
         {
-            $posts=$this->techFilter($posts);
-            $posts=$this->vseAvtoryChataFilter($posts);
-        }
-        if($settingLines->settingsFilter->contains('filter_id',2))
-        {
-            $posts=$this->techFilter($posts);
-            $posts=$this->stopSlova($posts);
+            $resPosts[]=$this->vseAvtoryChataFilter($OldPosts);
         }
         if($settingLines->settingsFilter->contains('filter_id',3))
         {
-            $posts=$this->techFilter($posts);
-            $posts=$this->linkInPostFilter($posts);
+            $resPosts[]=$this->linkInPostFilter($OldPosts);
         }
-        //фильтры вк СДЕЛАТЬ НЕ ПОСЛЕДОВАТЕЛЬНО А ПАРАЛЛЕЛЬНО
-        if($settingLines->settingsFilter->contains('filter_id',4))
+        //этот фильтр всегда должен быть последним из фильтров в ТГ и получать посты уже обработанные
+        if($settingLines->settingsFilter->contains('filter_id',2))
         {
-            $posts=$this->techFilterVK($posts);
-            $posts=$this->linksFilterVK($posts);
+            //если есть только этот фильтр ( редкий случай )
+            if ($settingLines->settingsFilter->count() === 1)
+            {
+                $resPosts=$this->stopSlova($OldPosts);
+            }
+            //если есть другие фильтры ( обычно так )
+            else
+            {
+                $resPosts=$this->stopSlova($resPosts);
+            }
         }
-        if($settingLines->settingsFilter->contains('filter_id',5))
+        //если нет ни одного фильтра вообще то просто вернём все сообщения
+        if ($settingLines->settingsFilter->count() === 0)
         {
-            $posts=$this->reklamaVK($posts);
+            $resPosts=$OldPosts;
         }
-        if($settingLines->settingsFilter->contains('filter_id',6))
-        {
-            $posts=$this->repostVK($posts);
+        //удалим дубликаты в постах тг
+        $resPosts=$this->deleteDublicaTG($resPosts);
+        return $resPosts;
+        }//конец обработки фильтров телеграм
+
+        //фильтры ВК
+        if ($settingLines['source_id']=='2') {
+            $OldPosts= $this->techFilterVK($posts);
+            //фильтры вк СДЕЛАТЬ НЕ ПОСЛЕДОВАТЕЛЬНО А ПАРАЛЛЕЛЬНО
+            if ($settingLines->settingsFilter->contains('filter_id', 4)) {
+                $resPosts[] = $this->linksFilterVK($OldPosts);
+            }
+            if ($settingLines->settingsFilter->contains('filter_id', 5)) {
+                $resPosts[] = $this->reklamaVK($OldPosts);
+            }
+            if ($settingLines->settingsFilter->contains('filter_id', 6)) {
+                $resPosts[] = $this->repostVK($OldPosts);
+            }
+            return $resPosts;
         }
-        return $posts;
+    }
+
+    public function deleteDublicaTG($resPosts)
+    {
+        $uniqueArr = array_map('unserialize', array_unique(array_map('serialize', $resPosts)));
+        return $uniqueArr;
     }
     //технический фильтр убирающий знаки переноса и приводящий в нижний регистр
     public function techFilter($posts)
@@ -83,22 +117,16 @@ class FilterService
     //технический фильтр убирающий знаки переноса и приводящий в нижний регистр
     public function techFilterVK($groups)
     {
-        $newPosts=[];
-        foreach ($groups as $posts)
-        {
             $temp_posts=[];
             //убираем знаки переноса и приводим в нижний регистр, убираем пустые сообщения
-            foreach($posts as $index=>$post)
+            foreach($groups as $index=>$post)
             {
                     $text = str_replace(["\\n", "\\p"], " ", mb_strtolower($post->text));
                     $text = str_replace("\n", " ", $text);
                     $post->text=$text;
                     $temp_posts[]=$post;
             }
-            $newPosts[]=$temp_posts;
-        }
-
-        return $newPosts;
+        return $temp_posts;
     }
     //первый фильтр убирающий дубли авторов
     public function vseAvtoryChataFilter($posts)
@@ -193,12 +221,8 @@ class FilterService
 
     public function linksFilterVK($groups)
     {
-
-        $finalArr=[];
-        foreach($groups as $group)
-        {
             $tempArr=[];
-            foreach($group as $post)
+            foreach($groups as $post)
             {
                 $flag=false;
                 //всё в нижний регистр
@@ -230,24 +254,37 @@ class FilterService
                     // Подстрока найдена
                     $flag=$this->stoplinksVK->checkLink($postMessage);
                 }
-
                 if($flag)
                 {
                     $tempArr[]=$post;
                 }
             }
-            $finalArr[]=$tempArr;
-        }
-        return $finalArr;
+        return $tempArr;
     }
     public function reklamaVK($posts)
     {
         return $posts;
     }
     //фильтр забирающий репосты
-    public function repostVK($posts)
+    public function repostVK($groups)
     {
-        return $posts;
+            $tempArr = [];
+            foreach ($groups as $post) {
+                $flag=false;
+                if(isset($post->copy_history))
+                {
+                    $repostOwner = $this->repostOwnersVK->addUserToDB($post->copy_history[0]->owner_id);
+                    if ($repostOwner->wasRecentlyCreated) {
+                        // Запись была создана
+                        $flag=true;
+                    }
+                }
+                if($flag)
+                {
+                    $tempArr[]=$post;
+                }
+            }
+        return $tempArr;
     }
 }
 //$flag=false;

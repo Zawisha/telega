@@ -22,6 +22,18 @@ class NotReadyResults extends Model
             ]);
         }
     }
+    public function storeResultsVK($posts,$clientName)
+    {
+        foreach($posts as $post)
+        {
+            NotReadyResults::create([
+                'group_name' => 'Группа ВК',
+                'message' => $post->text,
+                'link' => "https://vk.com/wall".$post->owner_id."_".$post->id,
+                'client_name' => $clientName,
+            ]);
+        }
+    }
     public function getOneNotReadyPost()
     {
         return NotReadyResults::where('used',0)->first();

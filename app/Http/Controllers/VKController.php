@@ -41,7 +41,7 @@ class VKController extends Controller
         {
         //получить список постов
             try {
-                $xml[] = json_decode(file_get_contents("https://api.vk.com/method/wall.get?owner_id=-".$oneGroup['group_name']."&count=5&v=5.131&access_token=".$token));
+                $xml[] = json_decode(file_get_contents("https://api.vk.com/method/wall.get?owner_id=-".$oneGroup['group_name']."&count=100&v=5.131&access_token=".$token));
             }
             catch (\Throwable $e)
             {

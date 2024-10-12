@@ -15,4 +15,4 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });
-Route::post('/getFromLocal', [ApiController::class, 'getFromLocal'])->name('getFromLocal');
+Route::post('/getFromLocal', [ApiController::class, 'getFromLocal'])->name('getFromLocal')->middleware('throttle:300,1');

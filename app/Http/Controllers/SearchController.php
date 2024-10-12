@@ -154,7 +154,8 @@ class SearchController extends Controller
                 //пока работаю с временного телефона
                 $phone='+380991106635';
                 $MadelineProto=$this->madAuth($phone,'not');
-                //передаю список всех групп линии в сервис для поиска и возвращаю сами группы без фильтров
+                //передаю список
+                // всех групп линии в сервис для поиска и возвращаю сами группы без фильтров
                 $posts=$this->telegramService->getPosts($MadelineProto,$settingLines->settingsGroups);
                 //вызываю фильтры
                 $posts=$this->filterService->mainFilter($settingLines,$posts);
@@ -170,19 +171,20 @@ class SearchController extends Controller
               $tempPosts=$this->vkService->deleteErrors($posts);
               $errorList=$tempPosts[0];
               $posts=$tempPosts[1];
-              //4844 технофея
-              //dd($errorList);
               //перевернул каждый оставшийся массив и убрал лишние поля ( количество )
               $posts=$this->vkService->reverseArr($posts);
+              //получил один список постов без всяких там переходов
+              $posts=$this->vkService->mergeArrays($posts);
               //оставить только новые посты и записать номер поста самого последнего
-                //ВЕРНУТЬ ЗАПИСЬ ID ПОСТА
               $posts=$this->vkService->techFilter($posts);
-              //вызываю фильтры СДЕЛАТЬ ПОСЛЕДОВАТЕЛЬНЫЕ ФИЛЬТРЫ
+              //вызываю фильтры. сделаны последовательно
               $posts=$this->filterService->mainFilter($settingLines,$posts);
-
-                dd($posts);
-
-
+              //объеденил результат
+              $posts=$this->vkService->mergeArrays($posts);
+              //удаление дубликатов
+              $posts=$this->filterService->deleteDublicaTG($posts);
+              //сохранение результатов ВК
+              $this->notReadyResults->storeResultsVK($posts,$allDataLines[0]->myClient->name);
             }
 
         }

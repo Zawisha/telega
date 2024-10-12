@@ -94,11 +94,12 @@ class TelegramService
         //у каждой строки забираем группы по одной
         foreach($allGroups as $oneGroup)
         {
+
             $offset=0;
             $workFlag=true;
             $groupMessageFirstId='';
               while(($workFlag)&&($offset<300))
-              {
+             {
             //если имя группы не пустое
             if(($oneGroup->group_name!=null)&&($oneGroup->group_name!=''))
             {
@@ -134,7 +135,6 @@ class TelegramService
                                     //если id сообщения меньше чем id в базе то добавляем его в итоговый массив
                                     if($oneMessage['id']>$oneGroup->post_id)
                                     {
-
                                         $oneMessage['group_name']='https://t.me/'.ltrim($oneGroup->group_name, '@');
                                         $finalMessages[]=$oneMessage;
                                         if($groupMessageFirstId=='')

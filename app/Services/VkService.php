@@ -51,13 +51,8 @@ class VkService
     }
     public function techFilter($groups)
     {
-        $finalArr=[];
-
-        foreach($groups as $group)
-        {
-
             $tempArr=[];
-            foreach($group as $post)
+            foreach($groups as $post)
             {
                 $owner_id = substr($post->owner_id, 1);
                 //берём записанный пост
@@ -66,7 +61,7 @@ class VkService
                 if($lastPost==null)
                 {
                     //записываю id поста в БД
-                   // $this->oneClientSettingsGroupsTelegramLine->changePostIdVK($owner_id,$post->id);
+                    $this->oneClientSettingsGroupsTelegramLine->changePostIdVK($owner_id,$post->id);
                     $tempArr[]=$post;
                 }
                 else
@@ -74,12 +69,22 @@ class VkService
                     //если пост более новый то записываю в БД и беру в работу
                     if($lastPost<$post->id)
                     {
-                      //  $this->oneClientSettingsGroupsTelegramLine->changePostIdVK($owner_id,$post->id);
+                        $this->oneClientSettingsGroupsTelegramLine->changePostIdVK($owner_id,$post->id);
                         $tempArr[]=$post;
                     }
                 }
             }
-            $finalArr[]=$tempArr;
+        return $tempArr;
+    }
+    public function mergeArrays($posts)
+    {
+        $finalArr=[];
+        foreach($posts as $group)
+        {
+            foreach($group as $post)
+            {
+                $finalArr[]=$post;
+            }
         }
         return $finalArr;
     }
