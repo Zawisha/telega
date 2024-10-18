@@ -73,7 +73,8 @@ class ApiController extends Controller
         }
         return response()->json([
             'message' => 'Данные успешно получены',
-            'received_data' => 'done'
+            'received_data' => 'done',
+            'data_resp' => $data
         ], 200);
     }
 }

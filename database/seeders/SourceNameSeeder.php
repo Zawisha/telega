@@ -16,6 +16,7 @@ class SourceNameSeeder extends Seeder
         $posts = [
             ['name' => 'telegram'],
             ['name' => 'vk'],
+            ['name' => 'instagram'],
         ];
 
         foreach ($posts as $post) {
