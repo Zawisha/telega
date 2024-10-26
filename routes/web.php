@@ -26,8 +26,10 @@ Route::get('/adminSearch',[MainController::class, 'adminSearch']);
 Route::get('/editLineSearchSettings/{id}',[SearchController::class, 'editLineSearchSettings']);
 Route::get('/filters',[FiltersController::class, 'index']);
 Route::get('/filter/{id}',[FiltersController::class, 'showOneFilter']);
-Route::get('/notReadyFilter',[FiltersController::class, 'notReadyFilter']);
-Route::get('/readyFilter',[FiltersController::class, 'readyFilter']);
+Route::get('/notReadyFilter/{clientName?}',[FiltersController::class, 'notReadyFilter']);
+Route::get('/notReadyFilterCommon',[FiltersController::class, 'notReadyFilterCommon']);
+Route::get('/ReadyFilterCommon',[FiltersController::class, 'ReadyFilterCommon']);
+Route::get('/readyFilter/{clientName?}/{archive?}',[FiltersController::class, 'readyFilter']);
 Route::get('/sendHosting',[ApiController::class, 'index']);
 Route::get('/vk',[VKController::class, 'index']);
 
@@ -58,11 +60,12 @@ Route::post('/searchClients',[SearchController::class, 'searchClients'])->name('
 Route::post('/slovoAdd',[FiltersController::class, 'slovoAdd'])->name('slovoAdd');
 Route::post('/deleteEditLine',[SearchController::class, 'deleteEditLine'])->name('deleteEditLine');
 Route::post('/deleteClientLine',[SearchController::class, 'deleteClientLine'])->name('deleteClientLine');
-Route::post('/addReadyClient',[SearchController::class, 'addReadyClient'])->name('addReadyClient');
+Route::post('/addReadyClient/{clientName?}',[SearchController::class, 'addReadyClient'])->name('addReadyClient');
 Route::post('/getClient',[FiltersController::class, 'getClient'])->name('getClient');
 Route::post('/sendToHosting',[ApiController::class, 'sendToHosting'])->name('sendToHosting');
 Route::post('/updateSource',[SearchController::class, 'updateSource'])->name('updateSource');
 Route::post('/updateTokenVK',[VKController::class, 'updateTokenVK'])->name('updateTokenVK');
 Route::post('/slovoAddVK',[FiltersController::class, 'slovoAddVK'])->name('slovoAddVK');
+Route::post('/skipArchive',[FiltersController::class, 'skipArchive'])->name('skipArchive');
 
 

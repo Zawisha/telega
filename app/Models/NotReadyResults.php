@@ -38,6 +38,10 @@ class NotReadyResults extends Model
     {
         return NotReadyResults::where('used',0)->first();
     }
+    public function getOneNotReadyPostClient($clientName)
+    {
+        return NotReadyResults::where('used',0)->where('client_name',$clientName)->first();
+    }
     public function getOneById($id)
     {
         return NotReadyResults::where('id',$id)->get();
@@ -91,5 +95,11 @@ class NotReadyResults extends Model
         catch(\Exception $e) {
 
         }
+    }
+    public function getClientsName()
+    {
+        return NotReadyResults::where('used',0)
+            ->distinct()
+            ->pluck('client_name');;
     }
 }

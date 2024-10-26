@@ -28,7 +28,16 @@ class ReadyResults extends Model
 
     public function getOneReadyPost()
     {
-        return ReadyResults::where('used',0)->first();
+        return ReadyResults::where('used',0)
+            ->where('archive',0)
+            ->first();
+    }
+    public function getOneReadyPostClient($clientName)
+    {
+        return ReadyResults::where('used',0)
+            ->where('client_name',$clientName)
+            ->where('archive',0)
+            ->first();
     }
     public function updateUsed($id)
     {
@@ -37,9 +46,52 @@ class ReadyResults extends Model
             ['used'=>true]
         );
     }
+    public function updateUsedArchive($id)
+    {
+        ReadyResults::where('id',$id)->
+        update(
+            ['archive'=>true]
+        );
+    }
     public function getCount()
     {
-        return ReadyResults::where('used',0)->count();
+        return ReadyResults::where('used',0)
+            ->where('archive',0)
+            ->count();
     }
-
+    public function getCountClient($clientName)
+    {
+        return ReadyResults::where('used',0)
+            ->where('client_name',$clientName)
+            ->where('archive',0)
+            ->count();
+    }
+    public function getClientsName()
+    {
+        return ReadyResults::where('used',0)
+            ->distinct()
+            ->pluck('client_name');;
+    }
+    public function getArchivePost($clientName)
+    {
+        return ReadyResults::where('client_name',$clientName)
+            ->where('used',0)
+            ->where('archive',1)
+            ->first();
+    }
+    public function getCountClientArchive($clientName)
+    {
+        return ReadyResults::where('used',0)
+            ->where('client_name',$clientName)
+            ->where('archive',1)
+            ->count();
+    }
+    public function getArchivePostNext($clientName,$id)
+    {
+        return ReadyResults::where('client_name',$clientName)
+            ->where('used',0)
+            ->where('archive',1)
+            ->where('id','>',$id)
+            ->first();
+    }
 }

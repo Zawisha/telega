@@ -112,7 +112,6 @@ class SearchController extends Controller
     }
     public function changeCheckboxStatus()
     {
-
         //если добавляем линию
         if(request('status')=='true')
         {
@@ -217,10 +216,14 @@ class SearchController extends Controller
     }
     public function addReadyClient()
     {
-        $this->searchService->processingClient(request('id'),request('choose'));
-        $post=$this->notReadyResults->getOneNotReadyPost();
-        return view('ready.notReady', ['post' => $post]);
-
+        $clientName = request('clientName');
+        $this->searchService->processingClient(request('id'), request('choose'));
+        if ($clientName) {
+            $post = $this->notReadyResults->getOneNotReadyPostClient($clientName);
+        } else {
+            $post = $this->notReadyResults->getOneNotReadyPost();
+        }
+            return view('ready.notReady', ['post' => $post]);
     }
     public function updateSource()
     {
