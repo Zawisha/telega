@@ -102,4 +102,15 @@ class NotReadyResults extends Model
             ->distinct()
             ->pluck('client_name');;
     }
+    public function getCountClientName($clientName)
+    {
+        return NotReadyResults::where('used',0)
+            ->where('client_name',$clientName)
+            ->count();
+    }
+    public function getCountClient()
+    {
+        return NotReadyResults::where('used',0)
+            ->count();
+    }
 }

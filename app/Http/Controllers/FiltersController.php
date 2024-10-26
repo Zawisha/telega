@@ -49,13 +49,16 @@ class FiltersController extends Controller
     {
         if($clientName)
         {
+            $count=$this->notReadyResults->getCountClientName($clientName);
             $post=$this->notReadyResults->getOneNotReadyPostClient($clientName);
         }
         else
         {
+            $count=$this->notReadyResults->getCountClient();
             $post=$this->notReadyResults->getOneNotReadyPost();
         }
-        return view('ready.notReady', ['post' => $post]);
+
+        return view('ready.notReady', ['post' => $post,'countClients' => $count]);
     }
     public function readyFilter($clientName = null, $archive=null)
     {

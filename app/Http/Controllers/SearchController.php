@@ -220,10 +220,13 @@ class SearchController extends Controller
         $this->searchService->processingClient(request('id'), request('choose'));
         if ($clientName) {
             $post = $this->notReadyResults->getOneNotReadyPostClient($clientName);
+            $count=$this->notReadyResults->getCountClientName($clientName);
+
         } else {
+            $count=$this->notReadyResults->getCountClient();
             $post = $this->notReadyResults->getOneNotReadyPost();
         }
-            return view('ready.notReady', ['post' => $post]);
+            return view('ready.notReady', ['post' => $post,'countClients' => $count]);
     }
     public function updateSource()
     {

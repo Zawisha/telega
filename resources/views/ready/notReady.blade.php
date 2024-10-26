@@ -10,6 +10,7 @@
         @endif
     @else
 <div>
+    <div>Осталось:{{ $countClients }}</div>
     <div>Клиент:{{ $post->client_name }}</div>
     <div class="ready_res_class">Ссылка:<a href={{ $post->link }} target="_blank">{{ $post->link }}</a></div>
     <div class="ready_res_class">Сообщение:{{ $post->message }}</div>

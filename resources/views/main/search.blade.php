@@ -7,7 +7,7 @@
     <div><a href="{{ url('/newClientTelegramSearch') }}" class="btn btn-primary btn-custom my-2">Поиск</a></div>
     <div><a href="{{ url('/sendHosting') }}" class="btn btn-primary btn-custom my-2">Отправка на хостинг =>hashiro.ru</a></div>
     @endif
-   @if (request()->url() === 'http://hashiro.ru/searchNavi')
+    @if (request()->url() === 'http://hashiro.ru/searchNavi')
     <div><a href="{{ url('/notReadyFilterCommon') }}" class="btn btn-primary btn-custom my-2">Обработка не готовых клиентов</a></div>
     <div><a href="{{ url('/ReadyFilterCommon') }}" class="btn btn-primary btn-custom my-2">Обработка готовых клиентов</a></div>
     @endif
